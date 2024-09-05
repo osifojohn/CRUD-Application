@@ -43,8 +43,6 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({
     fetchPosts();
   }, []);
 
-  let lastPostIdFromServer = 100;
-
   //Resource ID is faked; no real server update, just a workaround for incrementing IDs
   const generateUniqueId = () => {
     return Date.now();
