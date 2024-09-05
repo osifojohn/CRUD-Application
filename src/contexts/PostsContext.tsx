@@ -77,7 +77,11 @@ export const PostsProvider: React.FC<{ children: React.ReactNode }> = ({
         prevPosts.map((post) => (post.id === id ? updatedPost : post))
       );
     } catch (error) {
-      if (!localPostIds.has(id)) {
+      if (localPostIds.has(id)) {
+        toast.error(
+          'Cannot update locally created posts on the server; it always returns an error'
+        );
+      } else {
         toast.error(`${(error as Error).message}`);
       }
     } finally {

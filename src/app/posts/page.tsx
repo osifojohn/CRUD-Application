@@ -27,18 +27,18 @@ const Home: React.FC = () => {
       />
 
       {postsIsLoading && (
-        <div className="w-full h-full">
+        <div className="w-full h-52">
           <Loading message="" />
         </div>
       )}
       {postsError && (
-        <div className="w-full h-full">
+        <div className="w-full h-52">
           <Error error={postsError} />
         </div>
       )}
 
       {!postsIsLoading && !postsError && posts.length === 0 && (
-        <div className="w-full h-full">
+        <div className="w-full h-52">
           <p>No posts available.</p>
         </div>
       )}

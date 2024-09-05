@@ -14,21 +14,19 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
   className = '',
   disabled = false,
-}) => {
-  return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={`px-4 py-2 rounded text-white ${className} ${
-        disabled
-          ? 'bg-gray-400 cursor-not-allowed'
-          : 'bg-blue-500 hover:bg-blue-600'
-      }`}
-      disabled={disabled}
-    >
-      {text}
-    </button>
-  );
-};
+}) => (
+  <button
+    type={type}
+    onClick={onClick}
+    className={`px-4 py-2 text-sm md:text-base rounded text-white ${className} ${
+      disabled
+        ? 'bg-gray-400 cursor-not-allowed'
+        : 'bg-blue-500 hover:bg-blue-600'
+    }`}
+    disabled={disabled}
+  >
+    {text}
+  </button>
+);
 
 export default Button;

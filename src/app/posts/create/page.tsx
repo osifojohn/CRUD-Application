@@ -12,13 +12,22 @@ import { ROUTE_NAMES } from '@/utils/routes';
 const Create: React.FC = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const { handleCreate } = usePostsContext();
+
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await handleCreate(title, body);
-    router.push(ROUTE_NAMES.POSTS);
+    try {
+      setIsLoading(true);
+      await handleCreate(title, body);
+      router.push(ROUTE_NAMES.POSTS);
+    } catch (error) {
+      console.log('create post error ', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -40,7 +49,12 @@ const Create: React.FC = () => {
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
-        <Button text="Create Post" type="submit" className="bg-blue-500" />
+        <Button
+          disabled={isLoading}
+          text={isLoading ? 'Creating...' : 'Create Post'}
+          type="submit"
+          className="bg-blue-500"
+        />
       </Form>
     </div>
   );
