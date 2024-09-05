@@ -52,12 +52,14 @@ const Edit: React.FC<{ params: { id: string } }> = ({ params: { id } }) => {
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
-        <Button
-          text={loadingStates[id] || false ? 'Updating...' : 'Update Post'}
-          type="submit"
-          className="bg-green-500"
-          disabled={loadingStates[id] || false}
-        />
+        <div className="flex w-full justify-end">
+          <Button
+            text={loadingStates[id] || false ? 'Updating...' : 'Update Post'}
+            type="submit"
+            className="bg-green-500"
+            disabled={loadingStates[id] || false}
+          />
+        </div>
       </Form>
     </div>
   );

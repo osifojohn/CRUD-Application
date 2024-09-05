@@ -48,13 +48,15 @@ const Create: React.FC = () => {
           placeholder="Enter post body"
           value={body}
           onChange={(e) => setBody(e.target.value)}
-        />
-        <Button
-          disabled={isLoading}
-          text={isLoading ? 'Creating...' : 'Create Post'}
-          type="submit"
-          className="bg-blue-500"
-        />
+        />{' '}
+        <div className="flex w-full justify-end">
+          <Button
+            disabled={isLoading}
+            text={isLoading ? 'Creating...' : 'Create Post'}
+            type="submit"
+            className="bg-blue-500"
+          />
+        </div>
       </Form>
     </div>
   );

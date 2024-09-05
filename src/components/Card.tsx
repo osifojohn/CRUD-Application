@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({
   <div className={`bg-white p-4 rounded shadow ${className}`}>
     <h2 className="text-[15px]  md:text-lg font-bold mb-2">{title}</h2>
     <p className="text-sm md:text-base  text-gray-700 mb-4">{body}</p>
-    <div className="flex space-x-2">
+    <div className="flex w-full justify-end items-center space-x-2">
       {onEdit && (
         <button
           onClick={onEdit}
